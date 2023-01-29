@@ -39,14 +39,21 @@ Used open-jdk **version 17** (https://openjdk.org/projects/jdk/17/)
 
 * Now, start the VAT microservice in port 8081 & port 8082 using following command
      
+     
      <img width="270" alt="Screenshot 2023-01-30 at 3 41 37 AM" src="https://user-images.githubusercontent.com/32014166/215358464-6d8e107c-2bb8-4f58-a14b-4fc4ebcc6d70.png">
+     
 
 
    ```java -jar -Dserver.port=8081 microservice-vat-service/target/vat-1.0.jar```
    
    ```java -jar -Dserver.port=8082 microservice-vat-service/target/vat-1.0.jar```
    
-      <img width="178" alt="Screenshot 2023-01-30 at 3 41 46 AM" src="https://user-images.githubusercontent.com/32014166/215358503-e9a146e8-2f8b-4f6a-b2b4-5f7cb7817da8.png">
+      
+      
+      
+   <img width="178" alt="Screenshot 2023-01-30 at 3 41 46 AM" src="https://user-images.githubusercontent.com/32014166/215358820-0a9350f2-93ce-44c3-9884-1758912cd84c.png">
+   
+   
 
    
    ```java -jar -Dserver.port=8080 api-gateway/target/gateway-1.0.jar```
