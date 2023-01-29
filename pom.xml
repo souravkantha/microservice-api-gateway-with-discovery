@@ -7,7 +7,7 @@
   
   <modules>
     <module>microservice-vat-service</module> <!-- module is in a subdirectory of this project -->
-   
+    <module>microservice-discovery-server</module> <!-- module is in a subdirectory of this project -->
   </modules>
   
 </project>
