@@ -19,7 +19,9 @@ Used open-jdk **version 17** (https://openjdk.org/projects/jdk/17/)
 * Go the root directory i.e; **microservice-demo**
 * Use command ```mvn clean package```. Upon successful build creation will show below like screenshot
    
-<img width="587" alt="Screenshot 2023-01-29 at 7 35 23 PM" src="https://user-images.githubusercontent.com/32014166/215331454-127e64b5-3063-4677-b775-bce12f81976e.png">
+   <img width="587" alt="Screenshot 2023-01-29 at 7 35 23 PM" src="https://user-images.githubusercontent.com/32014166/215331454-127e64b5-3063-4677-b775-bce12f81976e.png">
+
+* All the necessary jars (microservice builds) should be created by now
 
 * Start the Eureka Server for service discovery i.e; **microservice-discovery-server** by providing the following command
    ```java -jar microservice-discovery-server/target/discovery-1.0.jar```
