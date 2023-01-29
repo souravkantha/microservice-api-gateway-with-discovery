@@ -2,6 +2,9 @@
 
 ## Architecture of this demo microservice
 
+![Untitled](https://user-images.githubusercontent.com/32014166/215333992-e5b82fc8-a240-4672-a3d3-262737b11bc2.jpg)
+
+
 ## Java Version
 Used open-jdk **version 17** (https://openjdk.org/projects/jdk/17/)
 
