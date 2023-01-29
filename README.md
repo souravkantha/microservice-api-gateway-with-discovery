@@ -2,7 +2,8 @@
 
 ## Architecture of this demo microservice
 
-![Untitled](https://user-images.githubusercontent.com/32014166/215333992-e5b82fc8-a240-4672-a3d3-262737b11bc2.jpg)
+![Untitled drawio](https://user-images.githubusercontent.com/32014166/215334286-938a2ade-5637-4829-a1a4-afc354a09a77.png)
+
 
 
 ## Java Version
