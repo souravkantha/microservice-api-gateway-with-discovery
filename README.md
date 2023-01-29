@@ -1,9 +1,8 @@
-# A Microservice Demo using spring boot & Eureka
+# A Microservice Demo using spring boot, spring Netflix Eureka & spring Cloud Gateway 
 
 ## Architecture of this demo microservice
 
-![Untitled drawio](https://user-images.githubusercontent.com/32014166/215334286-938a2ade-5637-4829-a1a4-afc354a09a77.png)
-
+   ![ms-demo drawio](https://user-images.githubusercontent.com/32014166/215344571-d176feef-5f6c-4b5b-a91f-77ffa76d8059.png)
 
 
 ## Java Version
