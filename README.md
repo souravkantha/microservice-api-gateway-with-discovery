@@ -28,7 +28,9 @@ Used open-jdk **version 17** (https://openjdk.org/projects/jdk/17/)
 
      
    ```java -jar microservice-discovery-server/target/discovery-1.0.jar```
+   
    Upon successful start of the discovery server, you should see the something as below
+   
    <img width="1423" alt="Screenshot 2023-01-29 at 7 40 26 PM" src="https://user-images.githubusercontent.com/32014166/215332110-fd1bfd28-e3f0-480e-9ada-768024024d71.png">
 * We can access the default dashboard of Eureka Server
   at http://localhost:8761/
