@@ -6,13 +6,13 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-import java.util.Objects;
 
 import org.springframework.stereotype.Component;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.microservice.vat.dto.VATRate;
+import com.microservice.vat.exceptions.CustomException;
 
 @Component
 public class ToyCache {
@@ -90,13 +90,19 @@ public class ToyCache {
 		
 	}
 	
-	public List<VATRate> getVatStandardHighestRates(int count) {
+	public List<VATRate> getVatStandardHighestRates(int count) throws RuntimeException {
+		
+		if(vatReducedLowestRates.size() < count)
+			throw new CustomException("ERR-001", "Actual number of countries are lesser than count");
 		
 		return vatStandardHighestRates.subList(0, count);
 		
 	}
 	
-	public List<VATRate> getVatReducedLowestRates(int count) {
+	public List<VATRate> getVatReducedLowestRates(int count) throws RuntimeException {
+		
+		if(vatReducedLowestRates.size() < count)
+			throw new CustomException("ERR-001", "Actual number of countries are lesser than count");
 		
 		return vatReducedLowestRates.subList(0, count);
 		

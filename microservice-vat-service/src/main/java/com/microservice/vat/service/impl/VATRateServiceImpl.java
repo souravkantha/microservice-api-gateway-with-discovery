@@ -16,7 +16,7 @@ public class VATRateServiceImpl implements VATRateService {
 	private ToyCache cache;
 
 	@Override
-	public List<VATRate> getHighestStandardVATRates(int count) {
+	public List<VATRate> getHighestStandardVATRates(int count) throws RuntimeException  {
 		// TODO Auto-generated method stub
 			
 			return cache.getVatStandardHighestRates(count);
@@ -24,7 +24,7 @@ public class VATRateServiceImpl implements VATRateService {
 	}
 
 	@Override
-	public List<VATRate> getLowestReducedVATRates(int count) {
+	public List<VATRate> getLowestReducedVATRates(int count) throws RuntimeException  {
 		// TODO Auto-generated method stub
 		return cache.getVatReducedLowestRates(count);
 	}

@@ -30,7 +30,7 @@ public class VATRateController {
 	@GetMapping("/standard/highest")
 	public List<VATRate> getStandardHighestVATRateCountries(
 			@Parameter(description = "Optional, continent value to be passed")  @RequestParam(name = "continent", required = false, defaultValue = "EU") String continent,
-			@Parameter(description = "Optional, provide number of countries to be fetched")  @RequestParam(name = "count", required = false, defaultValue = "3") Integer count ) {
+			@Parameter(description = "Optional, provide number of countries to be fetched")  @RequestParam(name = "count", required = false, defaultValue = "3") Integer count ) throws RuntimeException  {
 		
 		// Kept continent parameter, so that when more continents are added we can filter it
 		
@@ -44,7 +44,7 @@ public class VATRateController {
 	@GetMapping("/reduced/lowest")
 	public List<VATRate> getReducedLowestVATRateCountries(
 			@Parameter(description = "Optional, continent value to be passed")  @RequestParam(name = "continent", required = false, defaultValue = "EU") String continent,
-			@Parameter(description = "Optional, provide number of countries to be fetched")  @RequestParam(name = "count", required = false, defaultValue = "3") Integer count ) {
+			@Parameter(description = "Optional, provide number of countries to be fetched")  @RequestParam(name = "count", required = false, defaultValue = "3") Integer count ) throws RuntimeException  {
 		
 		// Kept continent parameter, so that when more continents are added we can filter it
 		
