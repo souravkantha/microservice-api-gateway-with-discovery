@@ -31,8 +31,6 @@ public class ToyCache {
 				VATRate vatRate = new VATRate();
 				vatRate.setCountryCode(e);
 				vatRate.setCountry(jsonNode.get(e).get("country").asText());
-				vatRate.setComment(!Objects.nonNull(jsonNode.get(e).get("_comment")) ? null : jsonNode.get(e).get("_comment").toString());
-				vatRate.setIsoDuplicateOf(!Objects.nonNull(jsonNode.get(e).get("iso_duplicate_of")) ? null : jsonNode.get(e).get("iso_duplicate_of").toString());
 				vatRate.setStandardRate(isValidDouble(jsonNode.get(e).get("standard_rate").toString()) ? 
 						Double.valueOf(jsonNode.get(e).get("standard_rate").toString()) : 0.0);
 				vatRate.setReducedRate(isValidDouble(jsonNode.get(e).get("reduced_rate").toString()) ? 
