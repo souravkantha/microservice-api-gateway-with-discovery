@@ -29,25 +29,29 @@ public class VATRateController {
 	
 	@GetMapping("/standard/highest")
 	public List<VATRate> getStandardHighestVATRateCountries(
-			@Parameter(description = "Mandatory, continent value to be passed")  @RequestParam(name = "continent", required = true, defaultValue = "EU") String continent,
+			@Parameter(description = "Optional, continent value to be passed")  @RequestParam(name = "continent", required = false, defaultValue = "EU") String continent,
 			@Parameter(description = "Optional, provide number of countries to be fetched")  @RequestParam(name = "count", required = false, defaultValue = "3") Integer count ) {
+		
+		// Kept continent parameter, so that when more continents are added we can filter it
 		
 		// Used to display the port number when used as replica
 		log.info("Serving from port : " + serverPort);
 		
-		return vatRateService.getHighestStandardVATRates();
+		return vatRateService.getHighestStandardVATRates(count);
 		
 	}
 	
 	@GetMapping("/reduced/lowest")
 	public List<VATRate> getReducedLowestVATRateCountries(
-			@Parameter(description = "Mandatory, continent value to be passed")  @RequestParam(name = "continent", required = true, defaultValue = "EU") String continent,
+			@Parameter(description = "Optional, continent value to be passed")  @RequestParam(name = "continent", required = false, defaultValue = "EU") String continent,
 			@Parameter(description = "Optional, provide number of countries to be fetched")  @RequestParam(name = "count", required = false, defaultValue = "3") Integer count ) {
+		
+		// Kept continent parameter, so that when more continents are added we can filter it
 		
 		// Used to display the port number when used as replica
 		log.info("Serving from port : " + serverPort);
 		
-		return vatRateService.getHighestStandardVATRates();
+		return vatRateService.getLowestReducedVATRates(count);
 		
 	}
 	

@@ -3,8 +3,8 @@ package com.microservice.vat.cache;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.Iterator;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -17,7 +17,8 @@ import com.microservice.vat.dto.VATRate;
 @Component
 public class ToyCache {
 	
-	private List<VATRate> vatRates = new LinkedList<>();
+	private List<VATRate> vatStandardHighestRates = new ArrayList<>();
+	private List<VATRate> vatReducedLowestRates = new ArrayList<>();
 
 	public ToyCache() { // Fail-Fast, parsing the json
 		 ObjectMapper mapper = new ObjectMapper();
@@ -32,10 +33,13 @@ public class ToyCache {
 				vatRate.setCountry(jsonNode.get(e).get("country").asText());
 				vatRate.setComment(!Objects.nonNull(jsonNode.get(e).get("_comment")) ? null : jsonNode.get(e).get("_comment").toString());
 				vatRate.setIsoDuplicateOf(!Objects.nonNull(jsonNode.get(e).get("iso_duplicate_of")) ? null : jsonNode.get(e).get("iso_duplicate_of").toString());
-				vatRate.setStandardRate(jsonNode.get(e).get("standard_rate").toString());
-				vatRate.setReducedRate(jsonNode.get(e).get("reduced_rate").toString());
-				vatRates.add(vatRate);
-				
+				vatRate.setStandardRate(isValidDouble(jsonNode.get(e).get("standard_rate").toString()) ? 
+						Double.valueOf(jsonNode.get(e).get("standard_rate").toString()) : 0.0);
+				vatRate.setReducedRate(isValidDouble(jsonNode.get(e).get("reduced_rate").toString()) ? 
+						Double.valueOf(jsonNode.get(e).get("reduced_rate").toString()) : 0.0);
+				vatStandardHighestRates.add(vatRate);
+				vatReducedLowestRates.add(vatRate);
+				sort();
 			});
 			
 				
@@ -49,9 +53,54 @@ public class ToyCache {
 		
 	}
 	
-	public List<VATRate> getVatRates() {
+	private boolean isValidDouble(String s) {
 		
-		return vatRates;
+		try {
+			Double.valueOf(s);
+		} catch(NumberFormatException e) {
+			return Boolean.FALSE;
+		}
+		
+		return Boolean.TRUE;
+	}
+	
+	public void sort() {
+		
+		vatStandardHighestRates.sort((VATRate o1, VATRate o2) -> {
+				// TODO Auto-generated method stub
+				if(o1.getStandardRate() < o2.getStandardRate()) {
+					return 1;
+				} else if(o1.getStandardRate() > o2.getStandardRate()) {
+					return -1;
+				}
+				
+				return 0;
+			}
+		);
+		
+		vatReducedLowestRates.sort((VATRate o1, VATRate o2) -> {
+			// TODO Auto-generated method stub
+			if(o1.getReducedRate() > o2.getReducedRate()) {
+				return 1;
+			} else if(o1.getReducedRate() < o2.getReducedRate()) {
+				return -1;
+			}
+			
+			return 0;
+		}
+	);
+		
+	}
+	
+	public List<VATRate> getVatStandardHighestRates(int count) {
+		
+		return vatStandardHighestRates.subList(0, count);
+		
+	}
+	
+	public List<VATRate> getVatReducedLowestRates(int count) {
+		
+		return vatReducedLowestRates.subList(0, count);
 		
 	}
 	

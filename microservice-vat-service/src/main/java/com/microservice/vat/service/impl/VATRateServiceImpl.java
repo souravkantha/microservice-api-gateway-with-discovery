@@ -16,13 +16,17 @@ public class VATRateServiceImpl implements VATRateService {
 	private ToyCache cache;
 
 	@Override
-	public List<VATRate> getHighestStandardVATRates() {
+	public List<VATRate> getHighestStandardVATRates(int count) {
 		// TODO Auto-generated method stub
 			
-			
-			return cache.getVatRates();
-			
+			return cache.getVatStandardHighestRates(count);
 		
+	}
+
+	@Override
+	public List<VATRate> getLowestReducedVATRates(int count) {
+		// TODO Auto-generated method stub
+		return cache.getVatReducedLowestRates(count);
 	}
 
 }
